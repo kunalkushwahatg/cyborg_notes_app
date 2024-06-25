@@ -225,7 +225,7 @@ function view_notes(card_id) {
 
     const edit_image = document.createElement("img");
     edit_image.className = "button-image";
-    edit_image.src = "images/edit.svg";
+    edit_image.src = "edit.svg";
 
     const deleteButton = document.createElement("button");
     deleteButton.className = "delete-note";
@@ -234,7 +234,7 @@ function view_notes(card_id) {
 
     const delete_image = document.createElement("img");
     delete_image.className = "button-image";
-    delete_image.src = "images/delete.png";
+    delete_image.src = "delete.png";
 
     buttons.appendChild(editButton);
     buttons.appendChild(deleteButton);
