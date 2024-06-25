@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <button id="add-button">+</button>
+
+  <header>
+    <h1>Notes App</h1>
+    <div id="suggestion_div">
+    <input type="text" id="search" placeholder="Search by title...">
+    <ul id="suggestions"></ul>
+  </div>
+
+  </header>
+  <div id="card-container"></div>
+  <dialog id="add-dialog">
+    <div class="dialog-header">
+      <h2>New Note</h2>
+    </div>
+
+
+    <div class="dialog-content">
+      <form id="add-form" method="dialog">
+        <p><label>Title: <input type="text" name="title" required></label></p>
+
+        <p><label>Body: <textarea name="body" rows="10"></textarea></p>
+      </form>
+    </div>
+    <div class="dialog-footer">
+      <button class="btn-cancel" id="cancel-btn">Cancel</button>
+      <button class="btn-send" form="compose-form"  id="add-save-btn">Save</button>
+    </div>
+  </dialog>
+
+  
+  <dialog id="edit-dialog">
+    <div class="dialog-header">
+      <h2>Edit Note</h2>
+    </div>
+    <div class="dialog-content">
+      <form id="edit-form" method="dialog">
+        <p><label>Title: <input type="text" name="title" id="edit-title" required></label></p>
+        <p><label>Body: <textarea name="body" rows="10" id="edit-body"></textarea></p>
+      </form>
+    </div>
+    <div class="dialog-footer">
+      <button class="btn-cancel" id="cancel-btn_edit">Cancel</button>
+      <button class="btn-send" form="compose-form"  id="edit-save-btn">Save</button>
+    </div>
+  </dialog>
+
+  <dialog id="view-dialog">
+    <div class="dialog-header">
+      <h2>View Note</h2>
+    </div>
+    <div class="dialog-content">
+      <p><strong>Title:</strong> <span id="view-title"></span></p>
+      <p><strong>Body:</strong> <span id="view-body"></span></p>
+      <p><strong>Created:</strong> <span id="view-created"></span></p>
+      <p><strong>Updated:</strong> <span id="view-updated"></span></p>
+    </div>
+    <div class="dialog-footer">
+      <button class="btn-cancel`" id="cancel-btn_view">Close</button>
+    </div>
+  </dialog>
+
+
+  
+  
+  <div id="pagination-controls">
+      <button id="prev-button">Previous</button>
+      <span id="page-info"></span>
+      <button id="next-button">Next</button>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

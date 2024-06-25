@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styled Dialog Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 2000px; /* Just to demonstrate scrolling */
+    }
+    #compose-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 56px;
+      height: 56px;
+      background-color: #4285f4;
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 24px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      z-index: 1000; /* Ensure it overlaps other elements */
+    }
+    #compose-button:hover {
+      background-color: #357ae8;
+    }
+    dialog {
+      width: 600px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    dialog::backdrop {
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .dialog-header {
+      padding: 16px;
+      background-color: #4285f4;
+      color: white;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+    .dialog-content {
+      padding: 16px;
+    }
+    .dialog-footer {
+      padding: 16px;
+      text-align: right;
+      background-color: #f1f1f1;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+    .dialog-footer button {
+      padding: 10px 20px;
+      margin-left: 8px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .btn-cancel {
+      background-color: #e0e0e0;
+    }
+    .btn-send {
+      background-color: #4285f4;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <button id="compose-button">+</button>
+
+  <dialog id="compose-dialog">
+    <div class="dialog-header">
+      <h2>Add note</h2>
+    </div>
+    <div class="dialog-content">
+      <form id="compose-form" method="dialog">
+        <p><label>Title: <input type="text" name="title" required></label></p>
+        <p><label>Author: <input type="text" name="author"></label></p>
+        <p><label>Message: <textarea name="body" rows="10"></textarea></p>
+      </form>
+    </div>
+    <div class="dialog-footer">
+      <button class="btn-cancel" id="cancel-btn">Cancel</button>
+      <button class="btn-send" form="compose-form">Send</button>
+    </div>
+  </dialog>
+
+
+
+  <dialog id="edit-dialog">
+    <div class="dialog-header">
+      <h2>Edit Note</h2>
+    </div>
+    <div class="dialog-content">
+      <form id="compose-form" method="dialog">
+        <p><label>Title: <input type="text" name="title" required></label></p>
+        <p><label>Author: <input type="text" name="author"></label></p>
+        <p><label>Message: <textarea name="body" rows="10"></textarea></p>
+      </form>
+    </div>
+    <div class="dialog-footer">
+      <button class="btn-cancel" id="cancel-btn">Cancel</button>
+      <button class="btn-save" form="compose-form">Send</button>
+    </div>
+  </dialog>
+
+  <script>
+    const dialog = document.getElementById('compose-dialog');
+    const composeButton = document.getElementById('compose-button');
+    const cancelButton = document.getElementById('cancel-btn');
+
+    composeButton.addEventListener('click', () => {
+      dialog.showModal();
+    });
+
+    cancelButton.addEventListener('click', () => {
+      dialog.close('cancel');
+    });
+
+    dialog.addEventListener('close', () => {
+      console.log(`Dialog closed: ${dialog.returnValue}`);
+    });
+  </script>
+</body>
+</html>

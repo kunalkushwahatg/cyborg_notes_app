@@ -1,0 +1,270 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  #add-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    background-color: #4285f4;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 1000; /* Ensure it overlaps other elements */
+    transition: background-color 0.3s, transform 0.3s; /* Add transition for smooth animation */
+  }
+  
+  #add-button:hover {
+    background-color: #357ae8;
+    transform: scale(1.1); /* Scale up the button */
+  }
+
+  
+  header {
+    background-color: #f8f8f8;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  #search {
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    padding-left: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  
+  #search:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 8px rgba(0,123,255,0.5);
+    outline: none;
+  }
+  
+  #search:hover {
+    background-color: #eef; /* Light background on hover */
+  } 
+
+
+  #suggestion_div{
+    padding: 5px;
+  }
+
+  #suggestions{
+    padding-left: 0px;
+  }
+
+  #suggestions li {
+    list-style-type: none;
+    text-align: left;
+    padding: 5px;
+    border-bottom: 1px solid #eee; 
+    transition: background-color 0.3s, transform 0.3s; 
+  }
+  
+  #suggestions li:hover {
+    background-color: #cee4ff; 
+    transform: scale(1.01);
+  }
+  
+  
+
+
+  
+  #search:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0,123,255,0.5);
+    outline: none;
+  }
+  
+  
+ .card {
+      border: 1px solid #ddd;
+      padding: 16px;
+      margin: 16px;
+      background-color: aliceblue;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      transition: background-color 0.3s, transform 0.3s; /* Add transition for smooth animation */
+    }
+    
+    .card:hover {
+      background-color: #dee8f9;
+      transform: scale(1.01); /* Scale up the button */
+    }
+    
+    .card-left {
+      flex: 90%;
+      
+    }
+    
+    .card-right {
+      flex: 10%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    
+    .card-title {
+      font-size: 1.5em;
+      margin-bottom: 8px;
+    }
+    
+    .card-desc {
+      font-size: 1em;
+      margin-bottom: 8px;
+    }
+    
+    .card-date {
+      font-size: 0.8em;
+      color: #999;
+    }
+    
+    .card-buttons {
+      display: flex;
+      top: 16px;
+      right: 16px;
+      
+    }
+    
+    .card-buttons button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: 8px;
+    }
+    
+    .card-buttons button i {
+      font-size: 1.2em;
+      color: #333;
+    }
+    
+    .card-buttons button:hover i {
+      color: #007BFF;
+    }
+
+    .button-image {
+      width: 30px;  
+      height: 30px; 
+    }
+    .button-image:hover {
+      background-color: #d1e2ff;
+      transform: scale(1.2); /* Scale up the button */
+    }
+
+    dialog {
+      width: 600px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+    }
+    dialog::backdrop {
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .dialog-header {
+      padding: 16px;
+      background-color: #4285f4;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .dialog-header h2 {
+      margin: 0;
+    }
+    .dialog-content {
+      padding: 16px;
+      background-color: #fff;
+    }
+    .dialog-footer {
+      padding: 16px;
+      text-align: right;
+      background-color: #f1f1f1;
+    }
+    .dialog-footer button {
+      padding: 10px 20px;
+      margin-left: 8px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .btn-cancel {
+      background-color: #e0e0e0;
+    }
+    .btn-send {
+      background-color: #4285f4;
+      color: white;
+    }
+    .close-icon {
+      cursor: pointer;
+      font-size: 24px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: calc(100% - 12px);
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+
+
+#pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+
+#pagination-controls button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#pagination-controls button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+#pagination-controls button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+
+#page-info {
+  margin: 0 1rem;
+  font-size: 1rem;
+  color: #333;
+}
