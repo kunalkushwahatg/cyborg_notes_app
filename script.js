@@ -44,25 +44,28 @@ document.addEventListener("DOMContentLoaded", function() {
   //function to handle search
   search.addEventListener('keyup', function() {
     const query = search.value.toLowerCase();
-    const filteredNotes = notes.filter(note => note.title.toLowerCase().includes(query));
 
-
-    ul.innerHTML = '';
-
-    const length = filteredNotes.length > 5 ? 5 : filteredNotes.length;
-
-    //sort filtered notes on the basis of date created
-    for (let i = 0; i < filteredNotes.length; i++) {
-      for(let j = i+1; j < filteredNotes.length; j++) {
-        if(filteredNotes[i].dateUpdated < filteredNotes[j].dateUpdated) {
-          var temp = filteredNotes[i];
-          filteredNotes[i] = filteredNotes[j];
-          filteredNotes[j] = temp;
-        }
-      }
+    // Check if the search input is empty
+    if (query === '') {
+        ul.innerHTML = ''; // Clear the ul element
+        return; // Exit the function early
     }
 
+    const filteredNotes = notes.filter(note => note.title.toLowerCase().includes(query));
 
+    ul.innerHTML = '';
+    const length = filteredNotes.length > 5 ? 5 : filteredNotes.length;
+
+    // Sort filtered notes on the basis of date created
+    for (let i = 0; i < filteredNotes.length; i++) {
+        for (let j = i + 1; j < filteredNotes.length; j++) {
+            if (filteredNotes[i].dateUpdated < filteredNotes[j].dateUpdated) {
+                var temp = filteredNotes[i];
+                filteredNotes[i] = filteredNotes[j];
+                filteredNotes[j] = temp;
+            }
+        }
+    }
 
     for (let i = 0; i < length; i++) {
         const li = document.createElement('li');
@@ -70,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
         ul.appendChild(li);
         li.addEventListener('click', () => view_notes(filteredNotes[i].id));
     }
-  });
+});
 
 
 
